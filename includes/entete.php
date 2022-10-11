@@ -8,7 +8,7 @@
 		<nav id="nav" class="nav" role="navigation">
 			<div class="menu-nav">
 				<form method="POST">
-					<button id="accueil" class="nav-btn" name="accueil" type="submit">Tableau de bord</button>
+					<button id="accueil" class="nav-btn" name="accueil" type="submit">Accueil</button>
 					<button id="reserver" class="nav-btn" name="reserver" type="submit">Réserver</button>
 					<button id="mesReservations" class="nav-btn" name="mesReservations" type="submit">Mes réservations</button>
 				</form>

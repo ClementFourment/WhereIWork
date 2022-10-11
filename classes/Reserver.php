@@ -4,7 +4,6 @@ class Reserver
 	protected $IdReserver;
     protected $Salle;
     protected $IdUtilisateur;
-	protected $PrixUnitaire;
 	protected $Date;
 	protected $PlageHoraire;
 
@@ -19,7 +18,6 @@ class Reserver
 			$this->setIdReserver($rowReserver['IdReserver']);
             $this->setIdSalle($rowReserver['IdSalle']);
             $this->setIdUtilisateur($rowReserver['IdUtilisateur']);
-			$this->setPrixUnitaire($rowReserver['PrixUnitaire']);
 			$this->setDate($rowReserver['Date']);
 			$this->setPlageHoraire($rowReserver['PlageHoraire']);
 		}
@@ -37,10 +35,6 @@ class Reserver
     public function setIdUtilisateur($IdUtilisateur)
 	{
 		$this->IdUtilisateur = $IdUtilisateur;
-	}
-	public function setPrixUnitaire($PrixUnitaire)
-	{
-		$this->PrixUnitaire = $PrixUnitaire;
 	}
 	public function setDate($Date)
 	{
@@ -62,10 +56,6 @@ class Reserver
     public function getIdUtilisateur()
 	{
 		return $this->IdUtilisateur;
-	}
-	public function getPrixUnitaire()
-	{
-		return $this->PrixUnitaire;
 	}
 	public function getDate()
 	{

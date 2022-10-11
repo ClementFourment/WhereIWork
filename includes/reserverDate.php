@@ -171,6 +171,7 @@
 		display: inline-block;
 		margin: 100px auto;
 	}
+	
 </style>
 	<section id="interface">
         <h1 class="h1 text-muted">Réserver</h1>
@@ -488,7 +489,6 @@
 			$('.fc-toolbar-chunk')[0].appendChild(titleType);
 			$('.fc-toolbar-chunk')[0].setAttribute('class', 'flexStart')
 			$('.fc-toolbar-chunk')[1].setAttribute('class', 'flexEnd')
-
 			//$('.fc-toolbar-chunk')[0].append($titleType)
 		});
 		</script>

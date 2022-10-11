@@ -64,9 +64,13 @@
 	// contient tout le reste du code	
 			
 		//Menu de navigation
-			if(isset($_POST['reserver']))
+			if(isset($_POST['reserverSalle']))
 			{
-				include('includes/reserver.php');
+				include('includes/reserverSalle.php');
+			}
+			if(isset($_POST['reserverSalleDate']))
+			{
+				include('includes/reserverSalleDate.php');
 			}
 			if(isset($_POST['mesReservations']))
 			{

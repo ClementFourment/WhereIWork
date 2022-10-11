@@ -110,7 +110,7 @@
 		<br><br>
 		<div class="login-page">
 		  <div class="form">
-		  	<h1>Bienvenue sur le Workshop</h1><br>
+		  	<h1>WhereIWork</h1><br>
 		    <form class="login-form" method="POST">
 		      <input name="Login" type="text" placeholder="Identifiant" required value= '<?= isset($_POST['ok']) ? $_POST['Login'] : '' ?>'/>
 		      <input name="MotDePasse" type="password" placeholder="Mot de passe"/>
