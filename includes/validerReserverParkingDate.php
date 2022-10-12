@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<title>Réserver restaurant</title>
+		<title>Réserver parking</title>
 		<meta http-equiv="Content-type" content="text/html" charset="utf-8">
 		<link type="text/css" href="css/styles.css" rel="stylesheet">
 		<link href='lib/main.css' rel='stylesheet' />
@@ -17,9 +17,9 @@
 	date_default_timezone_set('Europe/Paris');
 
 
-	if (isset($_POST['reserverRestaurantDate2']))
+	if (isset($_POST['reserverParkingDate2']))
 	{
-		$date = $_POST['reserverRestaurantDate2'];
+		$date = $_POST['reserverParkingDate2'];
 	}
 ?>
 	<style type="text/css">
@@ -46,15 +46,8 @@
 	</style>
 
 	<section id="interface">
-        <h1 class="h1 text-muted">Réserver restaurant le <?= $date ?></h1>
-	<?php
-		if (isset($_POST['validerRestaurant'])) 
-		{
-			$result = $connect->prepare("INSERT INTO `reserverRestaurant` (`IdUtilisateur`, `Date`) VALUES (" . $_SESSION['id'] . ", '" . $date . "')");
-			$result->execute();
-		}
-	?>
-		<h1>Félicitation, vous venez de réserver votre place au restaurant.</h1>
+        <h1 class="h1 text-muted">Réserver parking le <?= $date ?></h1>
+		<h1>Félicitation, vous venez de réserver votre place au parking.</h1>
 	</section>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<title>Réserver restaurant</title>
+		<title>Réserver parking</title>
 		<meta http-equiv="Content-type" content="text/html" charset="utf-8">
 		<link type="text/css" href="css/styles.css" rel="stylesheet">
 		<link href='lib/main.css' rel='stylesheet' />
@@ -17,9 +17,9 @@
 	date_default_timezone_set('Europe/Paris');
 
 
-	if (isset($_POST['reserverRestaurantDate']))
+	if (isset($_POST['reserverParkingDate']))
 	{
-		$date = $_POST['reserverRestaurantDate'];
+		$date = $_POST['reserverParkingDate'];
 	}
 ?>
 	<style type="text/css">
@@ -42,11 +42,11 @@
 	</style>
 
 	<section id="interface">
-        <h1 class="h1 text-muted">Réserver restaurant le <?= $date ?></h1>
+        <h1 class="h1 text-muted">Réserver parking le <?= $date ?></h1>
 	<?php
 		
 		$flag = false;
-		$result = $connect->prepare("SELECT * FROM `reserverRestaurant` WHERE `Date` = '" . $date . "' AND `IdUtilisateur`=" . $_SESSION['id']);
+		$result = $connect->prepare("SELECT * FROM `reserverParking` WHERE `Date` = '" . $date . "' AND `IdUtilisateur`=" . $_SESSION['id']);
 		$result->execute();
 		while($row = $result->fetch())
 		{
@@ -54,7 +54,7 @@
 		}
 		if ($flag)
 		{
-			?> <h1>Vous avez déjà réservé votre place au restaurant.</h1><?php
+			?> <h1>Vous avez déjà réservé votre place au parking.</h1><?php
 		}
 		else
 		{
@@ -62,10 +62,9 @@
 			<br>
 			<br>
 			<div style="display: flex; flex-flow: row wrap; align-items: center; width: 100vw; justify-content: space-evenly;">
-				<img src="img/menu.png">
 				<form method="POST" id="formReserver">
-					<input type="hidden" name="reserverRestaurantDate2" value="<?= $date ?>">
-					<div><p>Je réserve ma place au restaurant : </p><input type="checkbox" name="validerRestaurant" required></div>
+					<input type="hidden" name="reserverParkingDate2" value="<?= $date ?>">
+					<div><p>Je réserve ma place au parking : </p><input type="checkbox" name="validerParking" required></div>
 					<input type="submit" name="confirmerReserver" value="OK">
 				</form>
 			</div>

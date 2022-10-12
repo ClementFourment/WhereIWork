@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<title>Réserver restaurant</title>
+		<title>Réserver parking</title>
 		<meta http-equiv="Content-type" content="text/html" charset="utf-8">
 		<link type="text/css" href="css/styles.css" rel="stylesheet">
 		<link href='lib/main.css' rel='stylesheet' />
@@ -190,7 +190,7 @@
 	}
 </style>
 	<section id="interface">
-        <h1 class="h1 text-muted">Réserver restaurant</h1>
+        <h1 class="h1 text-muted">Réserver parking</h1>
 
 		<br><br>
 		<div id='calendar'></div>
@@ -200,7 +200,7 @@
     </section>
 
 	<form style="visibility: hidden;" method="POST">
-		<button type="submit" id="reserverRestaurantDate" name="reserverRestaurantDate" value=""></button>
+		<button type="submit" id="reserverParkingDate" name="reserverParkingDate" value=""></button>
 	</form>
 
 
@@ -259,8 +259,8 @@
 
 			if(today <= day)
 			{
-				$('#reserverRestaurantDate').val(date);
-				$('#reserverRestaurantDate').click();
+				$('#reserverParkingDate').val(date);
+				$('#reserverParkingDate').click();
 			}
 		}
 

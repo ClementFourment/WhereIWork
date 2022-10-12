@@ -9,6 +9,7 @@
 <?php
 	$_SESSION['page'] = "accueil";
 	include('database.php');
+	include('entete.php');
 ?>
 	<style type="text/css">
 		body{

@@ -5,44 +5,60 @@
 		<link type="text/css" href="css/styles.css" rel="stylesheet">
 	</head>
 	<body>
-		<nav id="nav" class="nav" role="navigation">
-			<div class="menu-nav">
+		<style type="text/css">
+			#logo{
+				position: absolute;
+				top: 4px;
+				left: 10px;
+				cursor: pointer;
+				border: none;
+				outline: none;
+				z-index: 1000;
+				padding: 0;
+			}
+			#logo:hover{
+				cursor: pointer;
+				transform: 	scale(0.95);
+			}
+
+		</style>
+
+
+
+
+	<form method="POST">
+		<button id="logo" type="submit" name="accueil">
+			<img src="img/logo.png">
+		</button>
+	</form>
+	<nav id="nav" class="nav" role="navigation">
+
+		<div class="hamburger">
+			<div class="hamburger1"></div>
+			<div class="hamburger2"></div>
+			<div class="hamburger3"></div>
+		</div>
+
+
+		<div id="volet-menu" class="volet-menu">
+			<div class="volet-menu-menu">
 				<form method="POST">
-					<button id="accueil" class="nav-btn" name="accueil" type="submit">Accueil</button>
-					<button id="reserver" class="nav-btn" name="reserver" type="submit">Réserver</button>
-					<button id="mesReservations" class="nav-btn" name="mesReservations" type="submit">Mes réservations</button>
+					<button id="accueil" name="accueil" type="submit">Accueil</button>
+					<button type="submit" name="covoiturage">Covoiturage</button>
+					<button type="submit" name="reserverRestaurant">Restauration</button>
+					<button type="submit" name="reserverParking">Réserver un parking</button>
+					<button type="submit" name="reserverSalle">Réserver un bureau</button>
+					<button type="submit" name="planningTeletravail">Planning télétravail</button>
+					<button type="submit" name="activites">Activités</button>
 				</form>
 			</div>
-			
-			
-			<div class="autre">
+			<div class="deconnexion">
 				<form method="POST">
-					<button class="nav-btn" name="deconnexion" type="submit" value="Se déconnecter">Se déconnecter</button>
+					<button name="deconnexion" type="submit" value="Se déconnecter">Se déconnecter</button>
 				</form>
 			</div>
-
-			<div class="hamburger">
-				<div class="hamburger1"></div>
-				<div class="hamburger2"></div>
-				<div class="hamburger3"></div>
-			</div>
-
-
-			<div id="volet-menu" class="volet-menu">
-				<div class="volet-menu-menu">
-					<form method="POST">
-						<button id="accueil" name="accueil" type="submit">Tableau de bord</button>
-						<button id="reserver" name="reserver" type="submit">Réserver</button>
-						<button id="mesReservations" name="mesReservations" type="submit">Mes réservations</button>
-					</form>
-				</div>
-				<div class="deconnexion">
-					<form method="POST">
-						<button name="deconnexion" type="submit" value="Se déconnecter">Se déconnecter</button>
-					</form>
-				</div>
-			</div>
-		</nav>
+		</div>
+	</nav>
 		<script type="text/javascript">
 		//souligne les boutons de navigation en suivant la souris.
 			var mousePosition;

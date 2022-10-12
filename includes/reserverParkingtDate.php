@@ -12,14 +12,13 @@
 <?php
     $_SESSION['page'] = "reserver";
 	include('database.php');
-	include('entete.php');
 	setlocale(LC_TIME, 'fr_FR');
 	date_default_timezone_set('Europe/Paris');
 
 
-	if (isset($_POST['reserverRestaurantDate2']))
+	if (isset($_POST['reserverRestaurantDate']))
 	{
-		$date = $_POST['reserverRestaurantDate2'];
+		$date = $_POST['reserverRestaurantDate'];
 	}
 ?>
 	<style type="text/css">
@@ -48,13 +47,30 @@
 	<section id="interface">
         <h1 class="h1 text-muted">Réserver restaurant le <?= $date ?></h1>
 	<?php
-		if (isset($_POST['validerRestaurant'])) 
+		
+		$flag = false;
+		$result = $connect->prepare("SELECT * FROM `reserverRestaurant` WHERE `Date` = '" . $date . "' AND `IdUtilisateur`=" . $_SESSION['id']);
+		$result->execute();
+		while($row = $result->fetch())
 		{
-			$result = $connect->prepare("INSERT INTO `reserverRestaurant` (`IdUtilisateur`, `Date`) VALUES (" . $_SESSION['id'] . ", '" . $date . "')");
-			$result->execute();
+			$flag = true;
+		}
+		if ($flag)
+		{
+			?> <h1>Vous avez déjà réservé votre place au restaurant.</h1><?php
+		}
+		else
+		{
+			?>
+			<form method="POST" id="formReserver">
+				<input type="hidden" name="reserverRestaurantDate2" value="<?= $date ?>">
+				<div><p>Je réserve ma place au restaurant : </p><input type="checkbox" name="validerRestaurant" required></div>
+				<input type="submit" name="confirmerReserver" value="OK">
+			</form>
+			<?php
 		}
 	?>
-		<h1>Félicitation, vous venez de réserver votre place au restaurant.</h1>
+		
 	</section>
 	</body>
 </html>

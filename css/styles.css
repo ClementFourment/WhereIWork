@@ -8,7 +8,7 @@
 }
 :root
 {
-	--couleur1: #F2F2F2;
+	--couleur1: #FFF;
     --couleur2: #c72cb2;
     --couleur3: #ad3434;
 	--gris-anthracite: #191919;
@@ -37,19 +37,30 @@ input[type=text], input[type=number], input[type=password], select, option
 }
 section#interface h1
 {
-	margin: 40px 0;
+	margin: 15px 0;
+}
+section#interface
+{
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 44px);
+	top: 44px;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: flex-start;
 }
 nav
 {
 	color: white;
 	position: fixed;
-	width: 100%;
 	height: 44px;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	background-color: var(--gris-anthracite);
-	top: 0;
+	background-color: white;
+	top: 60px;
+	right: 0;
 	z-index: 1000000;
 }
 nav button
@@ -118,7 +129,6 @@ nav .hamburger
 {
 	align-self: center;
 	padding-right: calc(10px + 0.7vw);
-	display: none;
 	flex-flow: column wrap;
 	justify-content: space-between;
 	align-items: center;
@@ -130,7 +140,7 @@ nav .hamburger div.hamburger1
 	transition: 0.5s;
 	position: relative;
 	display: block;
-	background: white;
+	background: var(--gris-anthracite);
 	width: 40px;
 	height: 4px;
 	border-radius: 2px;
@@ -143,7 +153,7 @@ nav .hamburger div.hamburger2
 	content: '';
 	padding: 0;
 	display: block;
-	background: white;
+	background: var(--gris-anthracite);
 	width: 40px;
 	height: 4px;
 	border-radius: 2px;
@@ -155,7 +165,7 @@ nav .hamburger div.hamburger3
 	content: '';
 	bottom: 0;
 	display: block;
-	background: white;
+	background: var(--gris-anthracite);
 	width: 40px;
 	height: 4px;
 	border-radius: 2px;
@@ -180,10 +190,10 @@ nav .hamburger.ouvert div.hamburger3
 {
 	position: absolute;
 	right: 0;
-	top: 44px;
+	top: 100px;
 	background-color: var(--gris-anthracite);
 	color: var(--blanc-pale);
-	height: calc(100vh - 44px);
+	height: calc(100vh - 160px);
 	width: 350px;
 	display: flex;
 	flex-flow: column wrap;
@@ -226,20 +236,7 @@ nav .hamburger.ouvert div.hamburger3
 	background-color: transparent;
 }
 
-.chart-container
-{
-	box-shadow: 1px 1px 2px var(--gris-anthracite);
-}
 
-
-
-
-
-
-
-
-@media only screen and (max-width: 1350px) 
-{
 	nav
 	{
 		justify-content: flex-end;
@@ -253,7 +250,7 @@ nav .hamburger.ouvert div.hamburger3
 	{
 		display: none;
 	}
-}
+
 .choix-menu-employe 
 {
 	display: flex;

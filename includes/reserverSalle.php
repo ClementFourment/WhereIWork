@@ -192,7 +192,7 @@
 	<section id="interface">
         <h1 class="h1 text-muted">Réserver un bureau</h1>
 
-		<br>
+		<br><br>
 		<div id='calendar'></div>
 
 
@@ -277,7 +277,7 @@
 			
 			
 			var titleType = document.createElement("h2");
- 			titleType.append("type")
+ 			titleType.append("")
  			titleType.setAttribute("class", "text-muted");
  			titleType.setAttribute("id", "titleType");
 

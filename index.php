@@ -89,6 +89,19 @@
 				include('includes/validerReserverRestaurantDate.php');
 			}
 
+		//Réserver parking
+			if(isset($_POST['reserverParking']))
+			{
+				include('includes/reserverParking.php');
+			}
+			if(isset($_POST['reserverParkingDate']))
+			{
+				include('includes/reserverParkingDate.php');
+			}
+			if(isset($_POST['confirmerReserver']))
+			{
+				include('includes/validerReserverParkingDate.php');
+			}
 
 
 
