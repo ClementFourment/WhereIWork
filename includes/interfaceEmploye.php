@@ -8,7 +8,6 @@
 	<body>
 <?php
 	$_SESSION['page'] = "accueil";
-	include('entete.php');
 	include('database.php');
 ?>
 	<style type="text/css">
@@ -22,9 +21,16 @@
 		<h1 class="h1 text-muted">WhereIWork</h1>
 		<div class="choix-menu-employe">
 			<form method="POST">
-				<button type="submit" name="reserverSalle" class="btn btn-primary">Réservation de salles</button>
-				<button type="submit" name="planningTeletravail" class="btn btn-primary">Planning télétravail</button>
-				<button type="submit" name="activites" class="btn btn-primary">Activités</button>
+				<div>
+					<button type="submit" name="covoiturage" class="btn btn-primary">Covoiturage</button>
+					<button type="submit" name="reserverRestaurant" class="btn btn-primary">Restauration</button>
+					<button type="submit" name="reserverParking" class="btn btn-primary">Réserver un parking</button>
+				</div>
+				<div>
+					<button type="submit" name="reserverSalle" class="btn btn-primary">Réserver un bureau</button>
+					<button type="submit" name="planningTeletravail" class="btn btn-primary">Planning télétravail</button>
+					<button type="submit" name="activites" class="btn btn-primary">Activités</button>
+				</div>
 			</form>
 		</div>
     </section>

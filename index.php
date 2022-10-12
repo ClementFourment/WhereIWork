@@ -35,9 +35,7 @@
 <?php
 	//Appel des classes
 		include('classes/Utilisateur.php');
-		include('classes/Reserver.php');
 		$utilisateur = new Utilisateur();
-		$reserver = new Reserver();
 
 	//connexion / deconnexion
 		if ((EMPTY($_POST) && EMPTY($_POST)) || isset($_POST['accueil']))
@@ -63,7 +61,7 @@
 		{
 	// contient tout le reste du code	
 			
-		//Menu de navigation
+		//Réserver Salles
 			if(isset($_POST['reserverSalle']))
 			{
 				include('includes/reserverSalle.php');
@@ -72,11 +70,38 @@
 			{
 				include('includes/reserverSalleDate.php');
 			}
-			if(isset($_POST['mesReservations']))
+			if(isset($_POST['salleareserver']))
 			{
-				include('includes/mesReservations.php');
+				include('includes/reserverSalleDate.php');
 			}
 			
+		//Réserver restaurant
+			if(isset($_POST['reserverRestaurant']))
+			{
+				include('includes/reserverRestaurant.php');
+			}
+			if(isset($_POST['reserverRestaurantDate']))
+			{
+				include('includes/reserverRestaurantDate.php');
+			}
+			if(isset($_POST['confirmerReserver']))
+			{
+				include('includes/validerReserverRestaurantDate.php');
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			if(isset($_POST['parametres']))
 			{
 				$utilisateur->entrer();
@@ -92,23 +117,7 @@
 
 		
 		
-		//Réservation de salles
-			if(isset($_POST['choisirSalleReserver']))
-			{
-				include('includes/reserverDate.php');
-			}
-			if (isset($_POST['confirmerReserver']))
-			{
-				$reserver->ajouter();
-			}
-			if (isset($_POST['supprimerReserver']))
-			{
-				$reserver->supprimer();
-			}
-			if (isset($_POST['supprimerReserverFromCalendar']))
-			{
-				$reserver->supprimerFromCalendar();
-			}
+		
 
 
 
