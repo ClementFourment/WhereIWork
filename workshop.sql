@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Oct 12, 2022 at 02:15 PM
+-- Generation Time: Oct 13, 2022 at 09:54 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -33,14 +33,70 @@ CREATE TABLE IF NOT EXISTS `activite` (
   `IdActivite` int(11) NOT NULL AUTO_INCREMENT,
   `Nom` varchar(50) NOT NULL,
   `Description` varchar(500) NOT NULL,
-  `Date` date NOT NULL,
-  `HeureDebut` timestamp NOT NULL,
-  `HeureFin` timestamp NOT NULL,
+  `Date` varchar(50) NOT NULL,
+  `HeureDebut` varchar(50) NOT NULL,
+  `HeureFin` varchar(50) NOT NULL,
   `Place` int(11) NOT NULL,
   `IdUtilisateur` int(11) NOT NULL,
   PRIMARY KEY (`IdActivite`),
   KEY `IdUtilisateur` (`IdUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `activite`
+--
+
+INSERT INTO `activite` (`IdActivite`, `Nom`, `Description`, `Date`, `HeureDebut`, `HeureFin`, `Place`, `IdUtilisateur`) VALUES
+(1, 'zef', 'zef', 'zefz', 'zef', 'zef', 2, 65),
+(2, 'zef', 'zef', 'zefz', 'zef', 'zef', 2, 65),
+(3, 'zef', 'zef', 'zefz', 'zef', 'zef', 2, 65),
+(4, 'zef', 'zef', 'zefz', 'zef', 'zef', 2, 65);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `covoiturage`
+--
+
+DROP TABLE IF EXISTS `covoiturage`;
+CREATE TABLE IF NOT EXISTS `covoiturage` (
+  `IdCovoiturage` int(11) NOT NULL AUTO_INCREMENT,
+  `Depart` varchar(50) NOT NULL,
+  `Arrivee` varchar(50) NOT NULL,
+  `Place` int(11) NOT NULL,
+  `Heure` varchar(50) NOT NULL,
+  `IdUtilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`IdCovoiturage`),
+  KEY `IdUtilisateur` (`IdUtilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `covoiturage`
+--
+
+INSERT INTO `covoiturage` (`IdCovoiturage`, `Depart`, `Arrivee`, `Place`, `Heure`, `IdUtilisateur`) VALUES
+(2, 'Montpellier', 'Bordeaux', 2, '12h00', 64);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `covoiturer`
+--
+
+DROP TABLE IF EXISTS `covoiturer`;
+CREATE TABLE IF NOT EXISTS `covoiturer` (
+  `IdCovoiturage` int(11) NOT NULL,
+  `IdUtilisateur` int(11) NOT NULL,
+  KEY `IdCovoiturage` (`IdCovoiturage`),
+  KEY `IdUtilisateur` (`IdUtilisateur`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `covoiturer`
+--
+
+INSERT INTO `covoiturer` (`IdCovoiturage`, `IdUtilisateur`) VALUES
+(2, 65);
 
 -- --------------------------------------------------------
 
@@ -56,41 +112,52 @@ CREATE TABLE IF NOT EXISTS `participer` (
   KEY `IdUtilisateur` (`IdUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `participer`
+--
+
+INSERT INTO `participer` (`IdActivite`, `IdUtilisateur`) VALUES
+(1, 64),
+(3, 64);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reserverRestaurant`
+-- Table structure for table `reserverrestaurant`
 --
 
-DROP TABLE IF EXISTS `reserverRestaurant`;
-CREATE TABLE IF NOT EXISTS `reserverRestaurant` (
+DROP TABLE IF EXISTS `reserverrestaurant`;
+CREATE TABLE IF NOT EXISTS `reserverrestaurant` (
   `IdReserver` int(11) NOT NULL AUTO_INCREMENT,
   `IdUtilisateur` int(11) NOT NULL,
   `Date` date NOT NULL,
   PRIMARY KEY (`IdReserver`),
   KEY `IdUtilisateur` (`IdUtilisateur`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reserverRestaurant`
+-- Dumping data for table `reserverrestaurant`
 --
 
-INSERT INTO `reserverRestaurant` (`IdReserver`, `IdUtilisateur`, `Date`) VALUES
+INSERT INTO `reserverrestaurant` (`IdReserver`, `IdUtilisateur`, `Date`) VALUES
 (9, 65, '2022-10-13'),
 (8, 65, '2022-10-12'),
 (7, 65, '2022-10-12'),
 (10, 65, '2022-10-13'),
 (11, 65, '2022-10-13'),
-(12, 65, '2022-10-15');
+(12, 65, '2022-10-15'),
+(13, 64, '2022-10-12'),
+(14, 64, '2022-10-13'),
+(15, 64, '2022-10-14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reserverSalle`
+-- Table structure for table `reserversalle`
 --
 
-DROP TABLE IF EXISTS `reserverSalle`;
-CREATE TABLE IF NOT EXISTS `reserverSalle` (
+DROP TABLE IF EXISTS `reserversalle`;
+CREATE TABLE IF NOT EXISTS `reserversalle` (
   `IdReserver` int(11) NOT NULL AUTO_INCREMENT,
   `IdSalle` int(11) DEFAULT NULL,
   `IdUtilisateur` int(11) DEFAULT NULL,
@@ -102,10 +169,10 @@ CREATE TABLE IF NOT EXISTS `reserverSalle` (
 ) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `reserverSalle`
+-- Dumping data for table `reserversalle`
 --
 
-INSERT INTO `reserverSalle` (`IdReserver`, `IdSalle`, `IdUtilisateur`, `Date`) VALUES
+INSERT INTO `reserversalle` (`IdReserver`, `IdSalle`, `IdUtilisateur`, `Date`) VALUES
 (332, 2, 65, '2022-10-12'),
 (336, 6, 65, '2022-10-13'),
 (342, 5, 64, '2022-10-13'),
@@ -181,6 +248,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Prenom` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Login` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `MotDePasse` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Team` int(11) NOT NULL,
   PRIMARY KEY (`IdUtilisateur`),
@@ -192,9 +260,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`IdUtilisateur`, `Nom`, `Prenom`, `Login`, `MotDePasse`, `Type`, `Team`) VALUES
-(64, 'user', 'user', 'user', 'mdp', 'Employé', 0),
-(65, 'user2', 'user2', 'user2', 'mdp', 'Employé', 0);
+INSERT INTO `utilisateur` (`IdUtilisateur`, `Nom`, `Prenom`, `Login`, `MotDePasse`, `Email`, `Type`, `Team`) VALUES
+(64, 'user', 'user', 'user', 'mdp', 'mail@mail.fr', 'Employé', 0),
+(65, 'user2', 'user2', 'user2', 'mdp', 'mail2@mail.fr', 'Employé', 0);
 
 --
 -- Constraints for dumped tables
@@ -214,9 +282,9 @@ ALTER TABLE `participer`
   ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`IdActivite`) REFERENCES `activite` (`IdActivite`);
 
 --
--- Constraints for table `reserverSalle`
+-- Constraints for table `reserversalle`
 --
-ALTER TABLE `reserverSalle`
+ALTER TABLE `reserversalle`
   ADD CONSTRAINT `reserversalle_ibfk_3` FOREIGN KEY (`IdSalle`) REFERENCES `salle` (`IdSalle`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 

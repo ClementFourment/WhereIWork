@@ -66,7 +66,7 @@
 				<form method="POST" id="formReserver">
 					<input type="hidden" name="reserverRestaurantDate2" value="<?= $date ?>">
 					<div><p>Je réserve ma place au restaurant : </p><input type="checkbox" name="validerRestaurant" required></div>
-					<input type="submit" name="confirmerReserver" value="OK">
+					<input type="submit" name="confirmerReserverRestaurant" value="OK">
 				</form>
 			</div>
 			<?php

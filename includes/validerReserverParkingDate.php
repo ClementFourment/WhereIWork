@@ -16,7 +16,7 @@
 	setlocale(LC_TIME, 'fr_FR');
 	date_default_timezone_set('Europe/Paris');
 
-
+	$date = '';
 	if (isset($_POST['reserverParkingDate2']))
 	{
 		$date = $_POST['reserverParkingDate2'];
@@ -43,11 +43,30 @@
 			width: 45px;
 			margin-left: 5px;
 		}
+		#placeReservee{
+			height: 100px;
+			width: 54px;
+			background-color: blue;
+			position: absolute;
+			top: 203px;
+			margin-left: -546px;
+			z-index: 10000;
+			opacity: 0.6;
+			border: 4px solid black;
+			cursor: pointer;
+		}
+		#placeReservee:hover{
+			transform: scale(1.05);
+		}
 	</style>
-
 	<section id="interface">
+		
+	<div id="placeReservee"></div>
         <h1 class="h1 text-muted">Réserver parking le <?= $date ?></h1>
 		<h1>Félicitation, vous venez de réserver votre place au parking.</h1>
+		<img src="img/parking.png">
+		<h1>Votre place est la N°6</h1>
+
 	</section>
 	</body>
 </html>

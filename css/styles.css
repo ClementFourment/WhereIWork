@@ -61,7 +61,7 @@ nav
 	background-color: white;
 	top: 60px;
 	right: 0;
-	z-index: 1000000;
+	z-index: 1000;
 }
 nav button
 {

@@ -30,7 +30,7 @@
 				<div>
 					<button type="submit" name="reserverSalle" class="btn btn-primary">Réserver un bureau</button>
 					<button type="submit" name="planningTeletravail" class="btn btn-primary">Planning télétravail</button>
-					<button type="submit" name="activites" class="btn btn-primary">Activités</button>
+					<button type="submit" name="activite" class="btn btn-primary">Activités</button>
 				</div>
 			</form>
 		</div>

@@ -84,7 +84,7 @@
 			{
 				include('includes/reserverRestaurantDate.php');
 			}
-			if(isset($_POST['confirmerReserver']))
+			if(isset($_POST['confirmerReserverRestaurant']))
 			{
 				include('includes/validerReserverRestaurantDate.php');
 			}
@@ -98,13 +98,62 @@
 			{
 				include('includes/reserverParkingDate.php');
 			}
-			if(isset($_POST['confirmerReserver']))
+			if(isset($_POST['confirmerReserverParking']))
 			{
 				include('includes/validerReserverParkingDate.php');
 			}
-
-
-
+		
+		//Covoiturage
+			if(isset($_POST['covoiturage']))
+			{
+				include('includes/covoiturage.php');
+			}
+			if(isset($_POST['ajouterCovoiturage']))
+			{
+				include('includes/ajouterCovoiturage.php');
+			}
+			if(isset($_POST['confirmerAjouterCovoiturage']))
+			{
+				include('includes/covoiturage.php');
+			}
+			if(isset($_POST['joindreCovoiturage']))
+			{
+				include('includes/covoiturage.php');
+			}
+			if(isset($_POST['retirerCovoiturage']))
+			{
+				include('includes/covoiturage.php');
+			}
+			if(isset($_POST['supprimerCovoiturage']))
+			{
+				include('includes/covoiturage.php');
+			}
+			
+		//Activite
+			if(isset($_POST['activite']))
+			{
+				include('includes/activite.php');
+			}
+			if(isset($_POST['ajouterActivite']))
+			{
+				include('includes/ajouterActivite.php');
+			}
+			if(isset($_POST['confirmerAjouterActivite']))
+			{
+				include('includes/activite.php');
+			}
+			if(isset($_POST['joindreActivite']))
+			{
+				include('includes/activite.php');
+			}
+			if(isset($_POST['retirerActivite']))
+			{
+				include('includes/activite.php');
+			}
+			if(isset($_POST['supprimerActivite']))
+			{
+				include('includes/activite.php');
+			}
 
 
 

@@ -43,34 +43,16 @@
 
 	<section id="interface">
         <h1 class="h1 text-muted">Réserver parking le <?= $date ?></h1>
-	<?php
-		
-		$flag = false;
-		$result = $connect->prepare("SELECT * FROM `reserverParking` WHERE `Date` = '" . $date . "' AND `IdUtilisateur`=" . $_SESSION['id']);
-		$result->execute();
-		while($row = $result->fetch())
-		{
-			$flag = true;
-		}
-		if ($flag)
-		{
-			?> <h1>Vous avez déjà réservé votre place au parking.</h1><?php
-		}
-		else
-		{
-			?>
+	
 			<br>
 			<br>
 			<div style="display: flex; flex-flow: row wrap; align-items: center; width: 100vw; justify-content: space-evenly;">
-				<form method="POST" id="formReserver">
+				<form id="formReserver" method="POST">
 					<input type="hidden" name="reserverParkingDate2" value="<?= $date ?>">
 					<div><p>Je réserve ma place au parking : </p><input type="checkbox" name="validerParking" required></div>
-					<input type="submit" name="confirmerReserver" value="OK">
+					<input type="submit" name="confirmerReserverParking" value="OK">
 				</form>
 			</div>
-			<?php
-		}
-	?>
 		
 	</section>
 	</body>

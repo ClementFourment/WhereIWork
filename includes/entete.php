@@ -49,7 +49,7 @@
 					<button type="submit" name="reserverParking">Réserver un parking</button>
 					<button type="submit" name="reserverSalle">Réserver un bureau</button>
 					<button type="submit" name="planningTeletravail">Planning télétravail</button>
-					<button type="submit" name="activites">Activités</button>
+					<button type="submit" name="activite">Activités</button>
 				</form>
 			</div>
 			<div class="deconnexion">
